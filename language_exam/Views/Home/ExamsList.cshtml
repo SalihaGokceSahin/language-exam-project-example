@@ -1,0 +1,53 @@
+﻿@model IEnumerable<language_exam.Models.Exams>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                İçerik Başlığı
+            </th>
+            <th>
+                Oluşturan
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.match.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creator)
+            </td>
+            
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @*@Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm", @id = "delete", @onclick = "deleteDepartmanFunction()" })*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@*<script>
+    function deleteDepartmanFunction() {
+        //prompt("Are you sure to delete this data?");
+        if (confirm("Are you sure to delete this data?")) {
+            if (confirm("If you delete this you can't reach this exam again.")) {
+                alert("data deleted succesfully.");
+            }
+            else { alert("data won't delete."); }
+        }
+        else {
+            alert("data won't delete.");
+        }
+    }
+   
+</script>*@

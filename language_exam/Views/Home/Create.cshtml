@@ -1,0 +1,214 @@
+﻿@model language_exam.Models.Exams
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+    <div class="card border-info">
+        <div class="card-header bg-info text-white">Question 1</div>
+        <div class="card-body">
+            <div>
+                <div class="form-group">
+                    <input hidden asp-for="matchId" id="matchId" name="matchId"/>
+                    <input hidden @*asp-for="match_title"*@ id="match_title" name="match_title" />
+                </div>
+                <input asp-for="question_1_text" id="question_1_text" name="question_1_text" class="form-control" type="text" placeholder="input a question" />
+                <p>choose a radio button for determine a correct answer</p>
+            </div>
+            <div class="form-check" id='block-11'>
+                <label for='option-11'>
+                    A)<input asp-for="answer_1_a_text" class="form-control" type="text" id="answer_1_a_text" name="answer_1_a_text" placeholder="input an answer" />
+                </label>
+                <span id='result-11'></span>
+            </div>
+            <div class="form-check" id='block-12'>
+                <label for='option-12'>
+                    B)<input asp-for="answer_1_b_text" class="form-control" type="text" id="answer_1_b_text" name="answer_1_b_text" placeholder="input an answer" />
+                </label>
+                <span id='result-12'></span>
+            </div>
+            <div class="form-check" id='block-13'>
+                <label for='option-13'>
+                    C)
+                    <input asp-for="answer_1_c_text" class="form-control" type="text" id="answer_1_c_text" name="answer_1_c_text" placeholder="input an answer" />
+                </label>
+                <span id='result-13'></span>
+            </div>
+            <div class="form-check" id='block-14'>
+                <label for='option-14'>
+                    D)
+                    <input asp-for="answer_1_d_text" class="form-control" type="text" id="answer_1_d_text" name="answer_1_d_text" placeholder="input an answer" />
+                </label>
+                <span id='result-14'></span>
+            </div>
+            <div>
+                please click for choose the correct answer
+                <select asp-for="correct_1_answer" id="correct_1_answer" name="correct_1_answer">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <a id='showanswer1'></a>
+        </div>
+    </div>
+    <br />
+
+
+    <div class="card border-info">
+        <div class="card-header bg-info text-white">Question 2</div>
+        <div class="card-body">
+            <div>
+                <input asp-for="question_2_text" class="form-control" type="text" id="question_2_text" name="question_2_text" placeholder="input a question" />
+                <p>choose a radio button for determine a correct answer</p>
+            </div>
+            <div class="form-check" id='block-11'>
+                <label for='option-11'>
+                    A)
+                    <input asp-for="answer_2_a_text" class="form-control" type="text" id="answer_2_a_text" name="answer_2_a_text" placeholder="input an answer" />
+                </label>
+                <span id='result-11'></span>
+            </div>
+            <div class="form-check" id='block-12'>
+                <label for='option-12'>
+                    B)
+                    <input asp-for="answer_2_b_text" class="form-control" type="text" id="answer_2_b_text" name="answer_2_b_text" placeholder="input an answer" />
+                </label>
+                <span id='result-12'></span>
+            </div>
+            <div class="form-check" id='block-13'>
+                <label for='option-13'>
+                    C)
+                    <input asp-for="answer_2_c_text" class="form-control" type="text" id="answer_2_c_text" name="answer_2_c_text" placeholder="input an answer" />
+                </label>
+                <span id='result-13'></span>
+            </div>
+            <div class="form-check" id='block-14'>
+                <label for='option-14'>
+                    D)
+                    <input asp-for="answer_2_d_text" class="form-control" type="text" id="answer_2_d_text" name="answer_2_d_text" placeholder="input an answer" />
+                </label>
+                <span id='result-14'></span>
+            </div>
+            <div>
+                please click for choose the correct answer
+                <select asp-for="correct_2_answer" id="correct_2_answer" name="correct_2_answer">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <a id='showanswer1'></a>
+        </div>
+    </div>
+    <br />
+
+
+    <div class="card border-info">
+        <div class="card-header bg-info text-white">Question 3</div>
+        <div class="card-body">
+            <div>
+                <input asp-for="question_3_text" class="form-control" type="text" id="question_3_text" name="question_3_text" placeholder="input a question" />
+                <p>choose a radio button for determine a correct answer</p>
+            </div>
+            <div class="form-check" id='block-11'>
+                <label for='option-11'>
+                    A)
+                    <input asp-for="answer_3_a_text" class="form-control" type="text" id="answer_3_a_text" name="answer_3_a_text" placeholder="input an answer" />
+                </label>
+                <span id='result-11'></span>
+            </div>
+            <div class="form-check" id='block-12'>
+                <label for='option-12'>
+                    B)
+                    <input asp-for="answer_3_b_text" class="form-control" type="text" id="answer_3_b_text" name="answer_3_b_text" placeholder="input an answer" />
+                </label>
+                <span id='result-12'></span>
+            </div>
+            <div class="form-check" id='block-13'>
+                <label for='option-13'>
+                    C)
+                    <input asp-for="answer_3_c_text" class="form-control" type="text" id="answer_3_c_text" name="answer_3_c_text" placeholder="input an answer" />
+                </label>
+                <span id='result-13'></span>
+            </div>
+            <div class="form-check" id='block-14'>
+                <label for='option-14'>
+                    D)
+                    <input asp-for="answer_3_d_text" class="form-control" type="text" id="answer_3_d_text" name="answer_3_d_text" placeholder="input an answer" />
+                </label>
+                <span id='result-14'></span>
+            </div>
+            <div>
+                please click for choose the correct answer
+                <select asp-for="correct_3_answer" id="correct_3_answer" name="correct_3_answer">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <a id='showanswer1'></a>
+        </div>
+    </div>
+    <br />
+
+
+    <div class="card border-info">
+        <div class="card-header bg-info text-white">Question 4</div>
+        <div class="card-body">
+            <div>
+                <input asp-for="question_4_text" class="form-control" type="text" id="question_4_text" name="question_4_text" placeholder="input a question" />
+                <p>choose a radio button for determine a correct answer</p>
+            </div>
+            <div class="form-check" id='block-11'>
+                <label for='option-11'>
+                    A)
+                    <input asp-for="answer_4_a_text" class="form-control" type="text" id="answer_4_a_text" name="answer_4_a_text" placeholder="input an answer" />
+                </label>
+                <span id='result-11'></span>
+            </div>
+            <div class="form-check" id='block-12'>
+                <label for='option-12'>
+                    B)
+                    <input asp-for="answer_4_b_text" class="form-control" type="text" id="answer_4_b_text" name="answer_4_b_text" placeholder="input an answer" />
+                </label>
+                <span id='result-12'></span>
+            </div>
+            <div class="form-check" id='block-13'>
+                <label for='option-13'>
+                    C)
+                    <input asp-for="answer_4_c_text" class="form-control" type="text" id="answer_4_c_text" name="answer_4_c_text" placeholder="input an answer" />
+                </label>
+                <span id='result-13'></span>
+            </div>
+            <div class="form-check" id='block-14'>
+                <label for='option-14'>
+                    D)
+                    <input asp-for="answer_4_d_text" class="form-control" type="text" id="answer_4_d_text" name="answer_4_d_text" placeholder="input an answer" />
+                </label>
+                <span id='result-14'></span>
+            </div>
+            <div>
+                please click for choose the correct answer
+                <select asp-for="correct_4_answer" id="correct_4_answer" name="correct_4_answer">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <a id='showanswer1'></a>
+        </div>
+    </div>
+    <br />
+
+
+    <button type='submit' class="btn btn-info btn-block">Submit</button>
+
+}
+
+@section Scripts {
+    @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
+}
