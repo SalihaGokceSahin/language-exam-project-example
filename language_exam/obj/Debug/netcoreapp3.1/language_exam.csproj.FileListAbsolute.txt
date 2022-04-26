@@ -170,3 +170,4 @@ C:\Users\gb141\source\repos\language_exam\language_exam\obj\Debug\netcoreapp3.1\
 C:\Users\gb141\source\repos\language_exam\language_exam\obj\Debug\netcoreapp3.1\language_exam.genruntimeconfig.cache
 C:\Users\gb141\source\repos\language_exam\language_exam\obj\Debug\netcoreapp3.1\Razor\Views\Home\Create.cshtml.g.cs
 C:\Users\gb141\source\repos\language_exam\language_exam\obj\Debug\netcoreapp3.1\Razor\Views\Home\ExamsList.cshtml.g.cs
+C:\Users\gb141\source\repos\language_exam\language_exam\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetExam.cshtml.g.cs

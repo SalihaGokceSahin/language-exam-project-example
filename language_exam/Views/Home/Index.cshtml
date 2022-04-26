@@ -11,7 +11,7 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
- 
+
     <style>
         .accordion {
             background-color: #eee;
@@ -46,12 +46,12 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td id="item_title" >
-                   
-                    <button class="accordion" id="title" >@Html.DisplayFor(modelItem => item.title)</button>
+                <td id="item_title">
+
+                    <button class="accordion" value="@item.Id" id="title" @*onclick="myFunction(@item.Id)"*@>@Html.DisplayFor(modelItem => item.title)</button>
                     <div class="panel">
-                        <p id="modelId" hidden>@Html.DisplayFor(modelItem=>item.Id)</p>
-                        <p>@Html.DisplayFor(modelItem => item.context)</p>
+                        <p id="modelId" hidden>@Html.DisplayFor(modelItem => item.Id)</p>
+                        <p>@Html.DisplayFor(modelItem => item.context)</p>                  
 
                         @await Html.PartialAsync("Create", item.Exams@*, Exams*@)
                     </div>
@@ -73,14 +73,15 @@
                 }
             });
         }
-        
-        document.querySelectorAll('.accordion').forEach(link => this.addEventListener('click', myFunction))
 
-        function myFunction() {
-            document.getElementById("matchId").value = document.getElementById("modelId").innerHTML;
-            
+
+        function myFunction(val) {
+            document.getElementById("matchId").value = val;
+
         }
+
         //document.getElementById("match_title").value = document.getElementById("title").innerHTML;
+                
 
     </script>
 </body>

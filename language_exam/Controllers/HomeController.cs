@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using language_exam.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -64,22 +65,38 @@ namespace language_exam.Controllers
                             HtmlWeb web2 = new HtmlWeb();
                             var htmlDoc2 = web2.Load(actual_url);
                             var node3 = htmlDoc2.DocumentNode.SelectNodes("//div/div/main/article/div/div/div/div/div/div/div/p");
-                            if (node3 != null)
+                            if (node3 == null)
+                            {
+                                node3 = htmlDoc2.DocumentNode.SelectNodes("//div/div/main/article/div/div/div/div/div/div/p");
+                            }
+                            else if (node3 == null)
+                            {
+                                node3 = htmlDoc2.DocumentNode.SelectNodes("//div/div/main/article/div/div/div/div/div/p");
+                            }
+                            else if(node3 == null){
+                                node3 = htmlDoc2.DocumentNode.SelectNodes("//main/div/div/section/article/p");
+                            }
+                            else /*(node3 != null)*/
                             {
                                 foreach (var t in node3)
                                 {
                                     m.context = m.context + " \n " + t.InnerText;
                                 }
                             }
-
                         }
-                        match.Add(m);
+                        
                         try
                         {
                             db.Matches.Add(m);
                             //the below code must be in comment if website doesn't allows when you have to do scraping. I keep it open for an example
                             db.SaveChanges();
+                            int matchId = db.Matches.Take(1).OrderByDescending(x=>x.Id).FirstOrDefault().Id;
 
+                            m.Exams = new List<Exams>();
+                            Exams exam = new Exams();
+                            exam.matchId = matchId;
+                            m.Exams.Add(exam);
+                            match.Add(m);
                         }
                         catch (Exception e)
                         {
@@ -100,8 +117,10 @@ namespace language_exam.Controllers
         public ActionResult Create(Exams exam)
         {
             Exams question_for_fill = new Exams();
-            question_for_fill.match = exam.match;
+            //question_for_fill.match = exam.match;
             question_for_fill.Id = exam.Id;
+            question_for_fill.creator = User.Identity.Name;
+            question_for_fill.matchId = exam.matchId;
             question_for_fill.question_1_text = exam.question_1_text;
             question_for_fill.question_2_text = exam.question_2_text;
             question_for_fill.question_3_text = exam.question_3_text;
@@ -127,7 +146,6 @@ namespace language_exam.Controllers
             question_for_fill.answer_4_b_text = exam.answer_4_b_text;
             question_for_fill.answer_4_c_text = exam.answer_4_c_text;
             question_for_fill.answer_4_d_text = exam.answer_4_d_text;
-            question_for_fill.matchId = exam.matchId;
             question_for_fill.created_date = DateTime.Now;
             db.Exams.Add(question_for_fill);
             db.SaveChanges();
@@ -141,30 +159,48 @@ namespace language_exam.Controllers
             var user_name = User.Identity.Name;
             var exams_list = db.Exams.Where(x => x.creator == user_name).ToList();
 
+            foreach (var item in exams_list)
+            {
+                item.match = db.Matches.Find(item.matchId);
+            }
+
+
             return View(exams_list);
         }
         //this is hard deletion and it is not acceptable normally. Because logging is important for our project always.
         //isActive, update_date, created_date, update_user, created_user datas important.
         //we create isActive field in table to show isActive=1 datas at other methods and when we delete data isActive must be 0.
-        [HttpDelete("{Id}")]
-        public IActionResult Delete([FromBody] int Id)
-        {
-            var deletion = db.Exams.Find(Id);
-            if (deletion == null)
-            {
-                return RedirectToAction("examslist");
+       
 
+        public ActionResult Delete(int Id = 0)
+        {
+            var exam = db.Exams.Find(Id);
+            if (exam == null)
+            {
+                //return HttpNotFound();
             }
-            db.Exams.Remove(deletion);
+            db.Exams.Remove(exam);
             db.SaveChanges();
             return RedirectToAction("examslist");
+            //return View(exam);
         }
-        
-        public IActionResult Privacy()
+        public ActionResult GetExam(int Id)
         {
-            return View();
-        }
+            var exam = db.Exams.Find(Id);
+            var match = db.Matches.Find(exam.matchId);
+            var matchContext = match.context;
+            var matchTitle = match.title;
 
+            ViewData["matchContext"] = matchContext;
+            ViewBag.matchTitle = matchTitle;
+
+            //if (exam == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            return View(exam);
+
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,0 +1,978 @@
+﻿@model language_exam.Models.Exams
+@{
+    var match_context=ViewData["matchContext"];
+    var match_title=ViewBag.matchTitle;
+}
+<head>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</head>
+
+
+<body>
+    <div class="card">
+        <div class="card-title">@match_title</div>
+        <div class="card-body">@match_context</div>
+    </div>
+    <hr />
+    <div class="card-deck">
+        <div class="card">
+            <h6>@*What fraction of a day is 6 hours?*@   @Html.DisplayFor(model => model.question_1_text) </h6>
+            <hr />
+            <div id='block-11'>
+                <label for='option-11'>
+                    <input type='radio' name='option1' @*value='6/24'*@ value="@Model.answer_1_a_text" id='option-11' />
+                    @*6/24*@@Html.DisplayFor(model => model.answer_1_a_text)
+                </label>
+                <span id='result-11'></span>
+            </div>
+            <hr />
+
+            <div id='block-12'>
+                <label for='option-12'>
+                    <input type='radio' name='option1' @*value='6'*@ value="@Model.answer_1_b_text" id='option-12' />
+                    @*6*@
+                    @Html.DisplayFor(model => model.answer_1_b_text)
+                </label>
+                <span id='result-12'></span>
+            </div>
+            <hr />
+
+            <div id='block-13'>
+                <label for='option-13'>
+                    <input type='radio' name='option1' @*value='1/3'*@ value="@Model.answer_1_c_text" id='option-13' />
+                    @*1/3*@
+                    @Html.DisplayFor(model => model.answer_1_c_text)
+                </label>
+                <span id='result-13'></span>
+            </div>
+            <hr />
+
+            <div id='block-14'>
+                <label for='option-14'>
+                    <input type='radio' name='option1' @*value='1/6'*@ value="@Model.answer_1_d_text" id='option-14' />
+                    @*1/6*@
+                    @Html.DisplayFor(model => model.answer_1_d_text)
+                </label>
+                <span id='result-14'></span>
+            </div>
+            <hr />
+            <a id='showanswer1'></a>
+        </div>
+
+
+
+        @*<div class="col-md-6">*@
+        <div class="card">
+            <h6>@*What fraction of a day is 6 hours?*@ @Html.DisplayFor(model => model.question_2_text)</h6>
+            <hr />
+
+            <div id='block-1'>
+                <label for='option-1'>
+                    <input type='radio' name='option2' @*value='6/24'*@ value="@Model.answer_2_a_text" id='option-1' />
+                    @*6/24*@
+                    @Html.DisplayFor(model => model.answer_2_a_text)
+                </label>
+                <span id='result-1'></span>
+            </div>
+            <hr />
+
+            <div id='block-2'>
+                <label for='option-2'>
+                    <input type='radio' name='option2' @*value='6'*@ value="@Model.answer_2_b_text" id='option-2' />
+                    @*6*@
+                    @Html.DisplayFor(model => model.answer_2_b_text)
+                </label>
+                <span id='result-2'></span>
+            </div>
+            <hr />
+
+            <div id='block-3'>
+                <label for='option-3'>
+                    <input type='radio' name='option2' @*value='1/3'*@ value="@Model.answer_2_c_text" id='option-3' />
+                    @*1/3*@
+                    @Html.DisplayFor(model => model.answer_2_c_text)
+                </label>
+                <span id='result-3'></span>
+            </div>
+            <hr />
+
+            <div id='block-4'>
+                <label for='option-4'>
+                    <input type='radio' name='option2' @*value='1/6'*@ value="@Model.answer_2_d_text" id='option-4' />
+                    @*1/6*@
+                    @Html.DisplayFor(model => model.answer_2_d_text)
+                </label>
+                <span id='result-4'></span>
+            </div>
+            <hr />
+            <a id='showanswer2'></a>
+        </div>
+    </div>
+
+    @*<div class="row">*@
+    @*<div class="col-md-6">*@
+    <hr />
+    <div class="card-deck">
+        <div class="card">
+            <h6>@*What fraction of a day is 6 hours?*@ @Html.DisplayFor(model => model.question_3_text)</h6>
+            <hr />
+
+            <div id='block-111'>
+                <label for='option-111'>
+                    <input type='radio' name='option3' @*value='6/24'*@ value="@Model.answer_3_a_text" id='option-111' />
+                    @*6/24*@
+                    @Html.DisplayFor(model => model.answer_3_a_text)
+                </label>
+                <span id='result-111'></span>
+            </div>
+            <hr />
+
+            <div id='block-122'>
+                <label for='option-122'>
+                    <input type='radio' name='option3' @*value='6'*@ value="@Model.answer_3_b_text" id='option-122' />
+                    @*6*@
+                    @Html.DisplayFor(model => model.answer_3_b_text)
+
+                </label>
+                <span id='result-122'></span>
+            </div>
+            <hr />
+
+            <div id='block-133'>
+                <label for='option-133'>
+                    <input type='radio' name='option3' @*value='1/3'*@ value="@Model.answer_3_c_text" id='option-133' />
+                    @*1/3*@
+                    @Html.DisplayFor(model => model.answer_3_c_text)
+                </label>
+                <span id='result-133'></span>
+            </div>
+            <hr />
+
+            <div id='block-144'>
+                <label for='option-144'>
+                    <input type='radio' name='option3' @*value='1/6'*@ value="@Model.answer_3_d_text" id='option-144' />
+                    @*1/6*@
+                    @Html.DisplayFor(model => model.answer_3_d_text)
+                </label>
+                <span id='result-144'></span>
+            </div>
+            <hr />
+            <a id='showanswer3'></a>
+        </div>
+
+        @*<div class="col-md-6">*@
+        <div class="card">
+            <h6>@*What fraction of a day is 6 hours?*@ @Html.DisplayFor(model => model.question_4_text)</h6>
+            <hr />
+
+            <div id='block-110'>
+                <label for='option-1100'>
+                    <input type='radio' name='option4' @*value='6/24'*@ value="@Model.answer_4_a_text" id='option-110' />
+                    @*6/24*@
+                    @Html.DisplayFor(model => model.answer_4_a_text)
+                </label>
+                <span id='result-110'></span>
+            </div>
+            <hr />
+
+            <div id='block-120'>
+                <label for='option-120'>
+                    <input type='radio' name='option4' @*value='6'*@ value="@Model.answer_4_b_text" id='option-120' />
+                    @*6*@
+                    @Html.DisplayFor(model => model.answer_4_b_text)
+                </label>
+                <span id='result-120'></span>
+            </div>
+            <hr />
+
+            <div id='block-130'>
+                <label for='option-130'>
+                    <input type='radio' name='option4' @*value='1/3'*@ value='@Model.answer_4_c_text' id='option-130' />
+                    @*1/3*@
+                    @Html.DisplayFor(model => model.answer_4_c_text)
+                </label>
+                <span id='result-130'></span>
+            </div>
+            <hr />
+
+            <div id='block-140'>
+                <label for='option-140'>
+                    <input type='radio' name='option4' @*value='1/6'*@ value='@Model.answer_4_d_text' id='option-140' />
+                    @*1/6*@
+                    @Html.DisplayFor(model => model.answer_4_d_text)
+                </label>
+                <span id='result-140'></span>
+            </div>
+            <hr />
+            <a id='showanswer4'></a>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <button type='button' @*onclick='displayAnswer1()'*@ onclick='displayAll()' class="btn btn-success btn-lg btn-block">Sınavı Tamamla</button>
+        </div>
+        <div class="col-4"></div>
+
+    </div>
+    <a id='showanswer1'></a>
+    <script>
+        //    The function evaluates the answer and displays result
+        function displayAll() {
+            displayAnswer1();
+            displayAnswer2();
+            displayAnswer3();
+            displayAnswer4();
+
+
+        }
+        function displayAnswer1() {
+            var A = 'A';
+            var B = 'B';
+            var C = 'C';
+            var D = 'D';
+            if (@Model.correct_1_answer=== A) {
+                if (document.getElementById('option-11').checked) {
+                    document.getElementById('block-11').style.border = '3px solid limegreen'
+                    document.getElementById('result-11').style.color = 'limegreen'
+                    document.getElementById('result-11').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-12').checked) {
+                    document.getElementById('block-12').style.border = '3px solid red'
+                    document.getElementById('result-12').style.color = 'red'
+                    document.getElementById('result-12').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-13').checked) {
+                    document.getElementById('block-13').style.border = '3px solid red'
+                    document.getElementById('result-13').style.color = 'red'
+                    document.getElementById('result-13').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-14').checked) {
+                    document.getElementById('block-14').style.border = '3px solid red'
+                    document.getElementById('result-14').style.color = 'red'
+                    document.getElementById('result-14').innerHTML = 'Incorrect!'
+                }
+            }
+
+            if (@Model.correct_1_answer=== B) {
+                if (document.getElementById('option-11').checked) {
+                    document.getElementById('block-11').style.border = '3px solid red'
+                    document.getElementById('result-11').style.color = 'red'
+                    document.getElementById('result-11').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-12').checked) {
+                    document.getElementById('block-12').style.border = '3px solid limegreen'
+                    document.getElementById('result-12').style.color = 'limegreen'
+                    document.getElementById('result-12').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-13').checked) {
+                    document.getElementById('block-13').style.border = '3px solid red'
+                    document.getElementById('result-13').style.color = 'red'
+                    document.getElementById('result-13').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-14').checked) {
+                    document.getElementById('block-14').style.border = '3px solid red'
+                    document.getElementById('result-14').style.color = 'red'
+                    document.getElementById('result-14').innerHTML = 'Incorrect!'
+                }
+            }
+
+            if (@Model.correct_1_answer=== C) {
+                if (document.getElementById('option-11').checked) {
+                    document.getElementById('block-11').style.border = '3px solid red'
+                    document.getElementById('result-11').style.color = 'red'
+                    document.getElementById('result-11').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-12').checked) {
+                    document.getElementById('block-12').style.border = '3px solid red'
+                    document.getElementById('result-12').style.color = 'red'
+                    document.getElementById('result-12').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-13').checked) {
+                    document.getElementById('block-13').style.border = '3px solid limegreen'
+                    document.getElementById('result-13').style.color = 'limegreen'
+                    document.getElementById('result-13').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-14').checked) {
+                    document.getElementById('block-14').style.border = '3px solid red'
+                    document.getElementById('result-14').style.color = 'red'
+                    document.getElementById('result-14').innerHTML = 'Incorrect!'
+                }
+            }
+            if (@Model.correct_1_answer=== D) {
+                if (document.getElementById('option-11').checked) {
+                    document.getElementById('block-11').style.border = '3px solid red'
+                    document.getElementById('result-11').style.color = 'red'
+                    document.getElementById('result-11').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-12').checked) {
+                    document.getElementById('block-12').style.border = '3px solid red'
+                    document.getElementById('result-12').style.color = 'red'
+                    document.getElementById('result-12').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-13').checked) {
+                    document.getElementById('block-13').style.border = '3px solid red'
+                    document.getElementById('result-13').style.color = 'red'
+                    document.getElementById('result-13').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-14').checked) {
+                    document.getElementById('block-14').style.border = '3px solid limegreen'
+                    document.getElementById('result-14').style.color = 'limegreen'
+                    document.getElementById('result-14').innerHTML = 'Correct!'
+                }
+            }
+
+
+
+            //    if (document.getElementById('option-11').checked) {
+            //    document.getElementById('block-11').style.border = '3px solid limegreen'
+            //    document.getElementById('result-11').style.color = 'limegreen'
+            //    document.getElementById('result-11').innerHTML = 'Correct!'
+            //}
+            //if (document.getElementById('option-12').checked) {
+            //    document.getElementById('block-12').style.border = '3px solid red'
+            //    document.getElementById('result-12').style.color = 'red'
+            //    document.getElementById('result-12').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer1()
+            //}
+            //if (document.getElementById('option-13').checked) {
+            //    document.getElementById('block-13').style.border = '3px solid red'
+            //    document.getElementById('result-13').style.color = 'red'
+            //    document.getElementById('result-13').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer1()
+            //}
+            //if (document.getElementById('option-14').checked) {
+            //    document.getElementById('block-14').style.border = '3px solid red'
+            //    document.getElementById('result-14').style.color = 'red'
+            //    document.getElementById('result-14').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer1()
+            //}
+        }
+        // the functon displays the link to the correct answer
+        //function showCorrectAnswer1() {
+        //    let showAnswer1 = document.createElement('p')
+        //    showAnswer1.innerHTML = 'Show Corrent Answer'
+        //    showAnswer1.style.position = 'relative'
+        //    showAnswer1.style.top = '-180px'
+        //    showAnswer1.style.fontSize = '1.75rem'
+        //    document.getElementById('showanswer1').appendChild(showAnswer1)
+        //    showAnswer1.addEventListener('click', () => {
+        //        document.getElementById('block-11').style.border = '3px solid limegreen'
+        //        document.getElementById('result-11').style.color = 'limegreen'
+        //        document.getElementById('result-11').innerHTML = 'Correct!'
+        //        document.getElementById('showanswer1').removeChild(showAnswer1)
+        //    })
+        //}
+
+
+
+
+
+        function displayAnswer2() {
+            var A = 'A';
+            var B = 'B';
+            var C = 'C';
+            var D = 'D';
+            if (@Model.correct_2_answer=== A) {
+                if (document.getElementById('option-1').checked) {
+                    document.getElementById('block-1').style.border = '3px solid limegreen'
+                    document.getElementById('result-1').style.color = 'limegreen'
+                    document.getElementById('result-1').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-2').checked) {
+                    document.getElementById('block-2').style.border = '3px solid red'
+                    document.getElementById('result-2').style.color = 'red'
+                    document.getElementById('result-2').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-3').checked) {
+                    document.getElementById('block-3').style.border = '3px solid red'
+                    document.getElementById('result-3').style.color = 'red'
+                    document.getElementById('result-3').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-4').checked) {
+                    document.getElementById('block-4').style.border = '3px solid red'
+                    document.getElementById('result-4').style.color = 'red'
+                    document.getElementById('result-4').innerHTML = 'Incorrect!'
+                }
+            }
+
+            if (@Model.correct_2_answer=== B) {
+                if (document.getElementById('option-1').checked) {
+                    document.getElementById('block-1').style.border = '3px solid red'
+                    document.getElementById('result-1').style.color = 'red'
+                    document.getElementById('result-1').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-2').checked) {
+                    document.getElementById('block-2').style.border = '3px solid limegreen'
+                    document.getElementById('result-2').style.color = 'limegreen'
+                    document.getElementById('result-2').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-3').checked) {
+                    document.getElementById('block-3').style.border = '3px solid red'
+                    document.getElementById('result-3').style.color = 'red'
+                    document.getElementById('result-3').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-4').checked) {
+                    document.getElementById('block-4').style.border = '3px solid red'
+                    document.getElementById('result-4').style.color = 'red'
+                    document.getElementById('result-4').innerHTML = 'Incorrect!'
+                }
+            }
+
+
+            if (@Model.correct_2_answer=== C) {
+                if (document.getElementById('option-1').checked) {
+                    document.getElementById('block-1').style.border = '3px solid red'
+                    document.getElementById('result-1').style.color = 'red'
+                    document.getElementById('result-1').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-2').checked) {
+                    document.getElementById('block-2').style.border = '3px solid red'
+                    document.getElementById('result-2').style.color = 'red'
+                    document.getElementById('result-2').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-3').checked) {
+                    document.getElementById('block-3').style.border = '3px solid limegreen'
+                    document.getElementById('result-3').style.color = 'limegreen'
+                    document.getElementById('result-3').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-4').checked) {
+                    document.getElementById('block-4').style.border = '3px solid red'
+                    document.getElementById('result-4').style.color = 'red'
+                    document.getElementById('result-4').innerHTML = 'Incorrect!'
+                }
+            }
+
+            if (@Model.correct_2_answer=== D) {
+                if (document.getElementById('option-1').checked) {
+                    document.getElementById('block-1').style.border = '3px solid red'
+                    document.getElementById('result-1').style.color = 'red'
+                    document.getElementById('result-1').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-2').checked) {
+                    document.getElementById('block-2').style.border = '3px solid red'
+                    document.getElementById('result-2').style.color = 'red'
+                    document.getElementById('result-2').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-3').checked) {
+                    document.getElementById('block-3').style.border = '3px solid red'
+                    document.getElementById('result-3').style.color = 'red'
+                    document.getElementById('result-3').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-4').checked) {
+                    document.getElementById('block-4').style.border = '3px solid limegreen'
+                    document.getElementById('result-4').style.color = 'limegreen'
+                    document.getElementById('result-4').innerHTML = 'Correct!'
+                }
+            }
+
+            //    if (document.getElementById('option-1').checked) {
+            //    document.getElementById('block-1').style.border = '3px solid limegreen'
+            //    document.getElementById('result-1').style.color = 'limegreen'
+            //    document.getElementById('result-1').innerHTML = 'Correct!'
+            //}
+            //if (document.getElementById('option-2').checked) {
+            //    document.getElementById('block-2').style.border = '3px solid red'
+            //    document.getElementById('result-2').style.color = 'red'
+            //    document.getElementById('result-2').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer1()
+            //}
+            //if (document.getElementById('option-3').checked) {
+            //    document.getElementById('block-3').style.border = '3px solid red'
+            //    document.getElementById('result-3').style.color = 'red'
+            //    document.getElementById('result-3').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer1()
+            //}
+            //if (document.getElementById('option-4').checked) {
+            //    document.getElementById('block-4').style.border = '3px solid red'
+            //    document.getElementById('result-4').style.color = 'red'
+            //    document.getElementById('result-4').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer2()
+            //}
+        }
+        //function showCorrectAnswer2() {
+        //    let showAnswer2 = document.createElement('p')
+        //    showAnswer2.innerHTML = 'Show Corrent Answer'
+        //    showAnswer2.style.position = 'relative'
+        //    showAnswer2.style.top = '-180px'
+        //    showAnswer2.style.fontSize = '1.75rem'
+        //    document.getElementById('showanswer2').appendChild(showAnswer2)
+        //    showAnswer2.addEventListener('click', () => {
+        //        document.getElementById('block-1').style.border = '3px solid limegreen'
+        //        document.getElementById('result-1').style.color = 'limegreen'
+        //        document.getElementById('result-1').innerHTML = 'Correct!'
+        //        document.getElementById('showanswer2').removeChild(showAnswer2)
+        //    })
+        //}
+
+
+
+
+
+
+
+
+        function displayAnswer3() {
+            var A = 'A';
+            var B = 'B';
+            var C = 'C';
+            var D = 'D';
+            if (@Model.correct_3_answer=== A) {
+                if (document.getElementById('option-111').checked) {
+                    document.getElementById('block-111').style.border = '3px solid limegreen'
+                    document.getElementById('result-111').style.color = 'limegreen'
+                    document.getElementById('result-111').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-122').checked) {
+                    document.getElementById('block-122').style.border = '3px solid red'
+                    document.getElementById('result-122').style.color = 'red'
+                    document.getElementById('result-122').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-133').checked) {
+                    document.getElementById('block-133').style.border = '3px solid red'
+                    document.getElementById('result-133').style.color = 'red'
+                    document.getElementById('result-133').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-144').checked) {
+                    document.getElementById('block-144').style.border = '3px solid red'
+                    document.getElementById('result-144').style.color = 'red'
+                    document.getElementById('result-144').innerHTML = 'Incorrect!'
+                }
+            }
+            if (@Model.correct_3_answer=== B) {
+                if (document.getElementById('option-111').checked) {
+                    document.getElementById('block-111').style.border = '3px solid red'
+                    document.getElementById('result-111').style.color = 'red'
+                    document.getElementById('result-111').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-122').checked) {
+                    document.getElementById('block-122').style.border = '3px solid limegreen'
+                    document.getElementById('result-122').style.color = 'limegreen'
+                    document.getElementById('result-122').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-133').checked) {
+                    document.getElementById('block-133').style.border = '3px solid red'
+                    document.getElementById('result-133').style.color = 'red'
+                    document.getElementById('result-133').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-144').checked) {
+                    document.getElementById('block-144').style.border = '3px solid red'
+                    document.getElementById('result-144').style.color = 'red'
+                    document.getElementById('result-144').innerHTML = 'Incorrect!'
+                }
+            }
+            if (@Model.correct_3_answer=== C) {
+                if (document.getElementById('option-111').checked) {
+                    document.getElementById('block-111').style.border = '3px solid red'
+                    document.getElementById('result-111').style.color = 'red'
+                    document.getElementById('result-111').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-122').checked) {
+                    document.getElementById('block-122').style.border = '3px solid red'
+                    document.getElementById('result-122').style.color = 'red'
+                    document.getElementById('result-122').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-133').checked) {
+                    document.getElementById('block-133').style.border = '3px solid limegreen'
+                    document.getElementById('result-133').style.color = 'limegreen'
+                    document.getElementById('result-133').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-144').checked) {
+                    document.getElementById('block-144').style.border = '3px solid red'
+                    document.getElementById('result-144').style.color = 'red'
+                    document.getElementById('result-144').innerHTML = 'Incorrect!'
+                }
+            }
+            if (@Model.correct_3_answer=== D) {
+                if (document.getElementById('option-111').checked) {
+                    document.getElementById('block-111').style.border = '3px solid red'
+                    document.getElementById('result-111').style.color = 'red'
+                    document.getElementById('result-111').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-122').checked) {
+                    document.getElementById('block-122').style.border = '3px solid red'
+                    document.getElementById('result-122').style.color = 'red'
+                    document.getElementById('result-122').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-133').checked) {
+                    document.getElementById('block-133').style.border = '3px solid red'
+                    document.getElementById('result-133').style.color = 'red'
+                    document.getElementById('result-133').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-144').checked) {
+                    document.getElementById('block-144').style.border = '3px solid limegreen'
+                    document.getElementById('result-144').style.color = 'limegreen'
+                    document.getElementById('result-144').innerHTML = 'Correct!'
+                }
+            }
+
+            //if (document.getElementById('option-111').checked) {
+            //    document.getElementById('block-111').style.border = '3px solid limegreen'
+            //    document.getElementById('result-111').style.color = 'limegreen'
+            //    document.getElementById('result-111').innerHTML = 'Correct!'
+            //}
+            //if (document.getElementById('option-122').checked) {
+            //    document.getElementById('block-122').style.border = '3px solid red'
+            //    document.getElementById('result-122').style.color = 'red'
+            //    document.getElementById('result-122').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer1()
+            //}
+            //if (document.getElementById('option-133').checked) {
+            //    document.getElementById('block-133').style.border = '3px solid red'
+            //    document.getElementById('result-133').style.color = 'red'
+            //    document.getElementById('result-133').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer1()
+            //}
+            //if (document.getElementById('option-144').checked) {
+            //    document.getElementById('block-144').style.border = '3px solid red'
+            //    document.getElementById('result-144').style.color = 'red'
+            //    document.getElementById('result-144').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer3()
+            //}
+        }
+        // the functon displays the link to the correct answer
+        //function showCorrectAnswer3() {
+        //    let showAnswer3 = document.createElement('p')
+        //    showAnswer3.innerHTML = 'Show Corrent Answer'
+        //    showAnswer3.style.position = 'relative'
+        //    showAnswer3.style.top = '-180px'
+        //    showAnswer3.style.fontSize = '1.75rem'
+        //    document.getElementById('showanswer3').appendChild(showAnswer3)
+        //    showAnswer3.addEventListener('click', () => {
+        //        document.getElementById('block-111').style.border = '3px solid limegreen'
+        //        document.getElementById('result-111').style.color = 'limegreen'
+        //        document.getElementById('result-111').innerHTML = 'Correct!'
+        //        document.getElementById('showanswer3').removeChild(showAnswer3)
+        //    })
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function displayAnswer4() {
+            var A = 'A';
+            var B = 'B';
+            var C = 'C';
+            var D = 'D';
+            if (@Model.correct_4_answer=== A) {
+                if (document.getElementById('option-110').checked) {
+                    document.getElementById('block-110').style.border = '3px solid limegreen'
+                    document.getElementById('result-110').style.color = 'limegreen'
+                    document.getElementById('result-110').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-120').checked) {
+                    document.getElementById('block-120').style.border = '3px solid red'
+                    document.getElementById('result-120').style.color = 'red'
+                    document.getElementById('result-120').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-130').checked) {
+                    document.getElementById('block-130').style.border = '3px solid red'
+                    document.getElementById('result-130').style.color = 'red'
+                    document.getElementById('result-130').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-140').checked) {
+                    document.getElementById('block-140').style.border = '3px solid red'
+                    document.getElementById('result-140').style.color = 'red'
+                    document.getElementById('result-140').innerHTML = 'Incorrect!'
+                }
+            }
+
+            if (@Model.correct_4_answer=== B) {
+                if (document.getElementById('option-110').checked) {
+                    document.getElementById('block-110').style.border = '3px solid red'
+                    document.getElementById('result-110').style.color = 'red'
+                    document.getElementById('result-110').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-120').checked) {
+                    document.getElementById('block-120').style.border = '3px solid limegreen'
+                    document.getElementById('result-120').style.color = 'limegreen'
+                    document.getElementById('result-120').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-130').checked) {
+                    document.getElementById('block-130').style.border = '3px solid red'
+                    document.getElementById('result-130').style.color = 'red'
+                    document.getElementById('result-130').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-140').checked) {
+                    document.getElementById('block-140').style.border = '3px solid red'
+                    document.getElementById('result-140').style.color = 'red'
+                    document.getElementById('result-140').innerHTML = 'Incorrect!'
+                }
+            }
+
+            if (@Model.correct_4_answer=== C) {
+                if (document.getElementById('option-110').checked) {
+                    document.getElementById('block-110').style.border = '3px solid red'
+                    document.getElementById('result-110').style.color = 'red'
+                    document.getElementById('result-110').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-120').checked) {
+                    document.getElementById('block-120').style.border = '3px solid red'
+                    document.getElementById('result-120').style.color = 'red'
+                    document.getElementById('result-120').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-130').checked) {
+                    document.getElementById('block-130').style.border = '3px solid limegreen'
+                    document.getElementById('result-130').style.color = 'limegreen'
+                    document.getElementById('result-130').innerHTML = 'Correct!'
+                }
+                if (document.getElementById('option-140').checked) {
+                    document.getElementById('block-140').style.border = '3px solid red'
+                    document.getElementById('result-140').style.color = 'red'
+                    document.getElementById('result-140').innerHTML = 'Incorrect!'
+                }
+            }
+            if (@Model.correct_4_answer=== D) {
+                if (document.getElementById('option-110').checked) {
+                    document.getElementById('block-110').style.border = '3px solid red'
+                    document.getElementById('result-110').style.color = 'red'
+                    document.getElementById('result-110').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-120').checked) {
+                    document.getElementById('block-120').style.border = '3px solid red'
+                    document.getElementById('result-120').style.color = 'red'
+                    document.getElementById('result-120').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-130').checked) {
+                    document.getElementById('block-130').style.border = '3px solid red'
+                    document.getElementById('result-130').style.color = 'red'
+                    document.getElementById('result-130').innerHTML = 'Incorrect!'
+                }
+                if (document.getElementById('option-140').checked) {
+                    document.getElementById('block-140').style.border = '3px solid limegreen'
+                    document.getElementById('result-140').style.color = 'limegreen'
+                    document.getElementById('result-140').innerHTML = 'Correct!'
+                }
+            }
+
+            //    if (document.getElementById('option-110').checked) {
+            //    document.getElementById('block-110').style.border = '3px solid limegreen'
+            //    document.getElementById('result-110').style.color = 'limegreen'
+            //    document.getElementById('result-110').innerHTML = 'Correct!'
+            //}
+            //if (document.getElementById('option-120').checked) {
+            //    document.getElementById('block-120').style.border = '3px solid red'
+            //    document.getElementById('result-120').style.color = 'red'
+            //    document.getElementById('result-120').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer1()
+            //}
+            //if (document.getElementById('option-130').checked) {
+            //    document.getElementById('block-130').style.border = '3px solid red'
+            //    document.getElementById('result-130').style.color = 'red'
+            //    document.getElementById('result-130').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer1()
+            //}
+            //if (document.getElementById('option-140').checked) {
+            //    document.getElementById('block-140').style.border = '3px solid red'
+            //    document.getElementById('result-140').style.color = 'red'
+            //    document.getElementById('result-140').innerHTML = 'Incorrect!'
+            //    //showCorrectAnswer4()
+            //}
+        }
+            // the functon displays the link to the correct answer
+            //function showCorrectAnswer4() {
+            //    let showAnswer4 = document.createElement('p')
+            //    showAnswer4.innerHTML = 'Show Corrent Answer'
+            //    showAnswer4.style.position = 'relative'
+            //    showAnswer4.style.top = '-180px'
+            //    showAnswer4.style.fontSize = '1.75rem'
+            //    document.getElementById('showanswer4').appendChild(showAnswer1)
+            //    showAnswer4.addEventListener('click', () => {
+            //        document.getElementById('block-110').style.border = '3px solid limegreen'
+            //        document.getElementById('result-110').style.color = 'limegreen'
+            //        document.getElementById('result-110').innerHTML = 'Correct!'
+            //        document.getElementById('showanswer4').removeChild(showAnswer4)
+            //    })
+            //}
+
+
+
+
+
+
+    </script>
+</body>
+
+
+@*<div>
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.match)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.match.Id)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.match.creator)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.match.creator)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.question_1_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.question_1_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_1_a_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_1_a_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_1_b_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_1_b_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_1_c_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_1_c_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_1_d_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_1_d_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.correct_1_answer)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.correct_1_answer)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.question_2_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.question_2_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_2_a_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_2_a_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_2_b_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_2_b_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_2_c_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_2_c_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_2_d_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_2_d_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.correct_2_answer)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.correct_2_answer)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.question_3_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.question_3_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_3_a_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_3_a_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_3_b_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_3_b_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_3_c_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_3_c_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_3_d_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_3_d_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.correct_3_answer)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.correct_3_answer)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.question_4_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.question_4_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_4_a_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_4_a_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_4_b_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_4_b_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_4_c_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_4_c_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.answer_4_d_text)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.answer_4_d_text)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.correct_4_answer)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.correct_4_answer)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.exam.created_date)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.exam.created_date)
+            </dd>
+        </dl>
+    </div>*@
+
